@@ -49,7 +49,7 @@ def process_folder(folder_path):
         for file in files:
             file_path = os.path.join(root, file)
             _, extension = os.path.splitext(file_path)
-            extension = extension.upper()[1:]  # Видаляємо крапку з початку розширення
+            extension = extension.upper()[1:]
             known_category = None
 
             for category, extensions in CATEGORIES.items():
@@ -94,7 +94,8 @@ if __name__ == '__main__':
     for category in CATEGORIES.keys():
         category_path = os.path.join(target_folder, category)
         files = os.scandir(category_path)
-        print(f'{category}: {", ".join(files)}')
+        print(f'{category}: {", ".join(file.name for file in files)}')
+
 
     print('Перелік усіх відомих розширень:')
     print(', '.join(set(known_extensions)))
