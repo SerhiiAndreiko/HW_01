@@ -93,7 +93,7 @@ if __name__ == '__main__':
     print('Список файлів в кожній категорії:')
     for category in CATEGORIES.keys():
         category_path = os.path.join(target_folder, category)
-        files = os.listdir(category_path)
+        files = os.scandir(category_path)
         print(f'{category}: {", ".join(files)}')
 
     print('Перелік усіх відомих розширень:')
